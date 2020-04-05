@@ -12,7 +12,7 @@ pip install python-dotenv
 ```bash
 cp .env.example .env
 ```
-`.env` の `CLIENT_SECRET` を書き換える（開発用botのトークン）
+`.env` の `BOT_TOKEN` を書き換える（開発用botのトークン）
 
 # 起動
 
