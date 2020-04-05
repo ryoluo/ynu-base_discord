@@ -13,3 +13,9 @@ pip install python-dotenv
 cp .env.example .env
 ```
 `.env` の `CLIENT_SECRET` を書き換える
+
+# 起動
+
+```bash
+python3 bot.py
+```
