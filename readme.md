@@ -1,13 +1,12 @@
 # 開発環境構築
 ## 依存モジュールのインストール
 ```bash
-# dicord.py
-python3 -m pip install -U discord.py # Mac, Linux
-py -3 -m pip install -U discord.py # Windows
-
-# python-dotenv
-pip install python-dotenv
+# Mac, Linux
+python3 -m pip install -U discord.py python-dotenv
+# Windows
+py -3 -m pip install -U discord.py python-dotenv
 ```
+
 ## 環境変数の設定
 ```bash
 cp .env.example .env
@@ -31,7 +30,7 @@ python3 bot.py
 heroku login
 
 # 環境変数の設定（本番用botのトークン）
-heroku config:add BOT_TOKEN="xxxxxxxxxxxxxxxxxxxxx" -a APP_NAME
+heroku config:set BOT_TOKEN="xxxxxxxxxxxxxxxxxxxxx" -a APP_NAME
 
 # デプロイ
 cd ynu-base_discord
