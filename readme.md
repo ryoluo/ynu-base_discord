@@ -1,4 +1,4 @@
-# 環境構築
+# 開発環境構築
 ## 依存モジュールのインストール
 ```bash
 # dicord.py
@@ -14,7 +14,7 @@ cp .env.example .env
 ```
 `.env` の `BOT_TOKEN` を書き換える（開発用botのトークン）
 
-# 起動
+## 起動
 
 ```bash
 python3 bot.py
