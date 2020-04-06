@@ -31,6 +31,8 @@ heroku login
 
 # 環境変数の設定（本番用botのトークン）
 heroku config:set BOT_TOKEN="xxxxxxxxxxxxxxxxxxxxx" -a APP_NAME
+# APP_ENV を本番に設定
+heroku config:set APP_ENV="prod" -a APP_NAME
 
 # デプロイ
 cd ynu-base_discord
