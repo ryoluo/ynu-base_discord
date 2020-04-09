@@ -1,6 +1,7 @@
 # coding: UTF-8
 import discord
 import settings
+import commands
 
 client = discord.Client()
 
@@ -12,6 +13,14 @@ BOT_TOKEN = settings.BOT_TOKEN
 TEST_CHANNEL_ID = 696641960047542333
 
 
+def isLocal():
+    return APP_ENV == APP_ENV_DEV
+
+
+def isTestChannel(channel):
+    return channel.id == TEST_CHANNEL_ID
+
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -19,14 +28,15 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if filterMessage(message):
+    if message.author.bot:
+        return
+    if isLocal() and not isTestChannel(message.channel):
+        return
+    if not isLocal() and isTestChannel(message.channel):
         return
     if message.content == '/neko':
-        await message.channel.send('にゃーん')
-
-
-def filterMessage(message):
-    return message.author.bot or (APP_ENV == APP_ENV_PROD and message.channel.id == TEST_CHANNEL_ID) or (APP_ENV == APP_ENV_DEV and message.channel.id != TEST_CHANNEL_ID)
-
+        await commands.neko(message.channel)
+    if message.content == '/members':
+        await commands.members(message.guild.members, message.author)
 
 client.run(BOT_TOKEN)

@@ -16,7 +16,7 @@ cp .env.example .env
 ## 起動
 
 ```bash
-python3 bot.py
+python3 main.py
 ```
 
 # Herokuへのデプロイ
@@ -42,11 +42,11 @@ git push heroku master
 デプロイが成功したら、アプリケーション管理画面の `Resources` タブから、`Dynos` を起動させる
 
 ## 起動の確認
-ログを見て `Bot is ready!` と表示されていればOK
+ログを見て `We have logged in as {botname}` と表示されていればOK
 ```bash
 heroku ps
-# === discordbot (Free): python bot.py (1)
+# === discordbot (Free): python main.py (1)
 # discordbot.1: up 2020/04/05 18:36:13 +0900 (~ 24m ago)
 heroku logs
-# 2020-04-05T09:36:17.834098+00:00 app[discordbot.1]: Bot is ready!
+# 2020-04-05T09:36:17.834098+00:00 app[discordbot.1]: We have logged in as {botname}
 ```
