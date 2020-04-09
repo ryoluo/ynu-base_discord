@@ -38,5 +38,7 @@ async def on_message(message):
         await commands.neko(message.channel)
     if message.content == '/members':
         await commands.members(message.guild.members, message.author)
+    if message.content == '/roles':
+        await commands.roles(message.guild.roles, message.author)
 
 client.run(BOT_TOKEN)
